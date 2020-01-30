@@ -23,6 +23,10 @@ import * as firebase from 'firebase';
 firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
+database.ref().set({
+  name: 'raul',
+  age: 27
+});
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
 export { firebase, firebaseConfig, googleAuthProvider, database as default };

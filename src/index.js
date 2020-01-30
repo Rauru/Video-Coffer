@@ -6,7 +6,7 @@ import App from './App';
 import configureStore from './store/store';
 import './styles/index.css';
 import * as serviceWorker from './serviceWorker';
-import {firebase} from './firebase/firebaseConfig';
+import database,{firebase} from './firebase/firebaseConfig';
 import {history} from './routes';
 import {login, logout} from './actions/User';
 
