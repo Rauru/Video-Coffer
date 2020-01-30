@@ -19,7 +19,7 @@ export const PrivateRoute = ({
       )
     )}/>
 );
- 
+ //
 const mapStateToProps = (state)=>({
   isAuthenticated: !!state.users.id,
   state: state
