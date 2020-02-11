@@ -11,9 +11,9 @@ const WatchLaterimg=()=>{
     //    });
     
 //    return( <img src={list.thumbnail} rounded />);
-    list.array.forEach(element => {
-        return (<Image src={image.thumbnail} rounded />);
-    });
+    // list.array.forEach(element => {
+    //     return (<Image src={image.thumbnail} rounded />);
+    // });
  }
 
 export default WatchLaterimg;
