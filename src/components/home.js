@@ -11,7 +11,7 @@ const toplayer = () => {
 };
 
 const towatchlater = () => {
-  history.push("/watchLater");
+  history.push("/watchLaterimg");
 };
 
 export const Home = ({ startLogout }) => {

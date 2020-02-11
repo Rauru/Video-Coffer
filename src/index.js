@@ -24,6 +24,7 @@ ReactDOM.render(jsx, document.getElementById('root'));
 
 store.subscribe(
   ()=>{
+    console.log(store.getState().list)
   }
 );
 
@@ -38,6 +39,7 @@ firebase.auth().onAuthStateChanged((user)=>{
   }else{
     store.dispatch(logout());
     history.push('/');
+    
   }
 });
 

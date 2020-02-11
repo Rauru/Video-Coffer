@@ -3,8 +3,9 @@ const listReducerDefaultState = [];
 const listReducer = (state = listReducerDefaultState  , action) => {
     switch (action.type) {
         case 'REMOVE_LIST':
-            return state.filter(({id})=>{
-                return id !== action.id
+            return state.filter(({sid})=>{
+                //console.log(action.id);
+                return sid !== action.sid
             })
         case 'ADD_LIST':
             return [

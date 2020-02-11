@@ -38,14 +38,15 @@ export const addVideoList = (videoData={})=>{
 export const getVideoList = (email)=>{
     return (dispatch)=>{
         const hash = hashCode(email)
+        const savedvideos =[];
         database.ref(`videolist/${hash}`).once('value').then((snapshot)=>{
-            const savedvideos =[];
             snapshot.forEach((child)=>{
                 savedvideos.push({
                     sid: child.key,
                     ...child.val()
                 })
             })
+            //console.log(savedvideos);
             dispatch(getList(savedvideos));
         });
     };

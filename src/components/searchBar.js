@@ -4,8 +4,10 @@ import { useHistory } from 'react-router-dom';
 import { InputGroup, FormControl, Spinner, Card, Button, CardDeck, Alert } from 'react-bootstrap';
 import { debounce } from 'throttle-debounce';
 import videoSearch from '../actions/videos';
-import videoId, {addVideoList} from '../actions/videoId';
+import videoId, {addVideoList, removeVideoList} from '../actions/videoId';
 import '../styles/searchBar.css';
+
+import {removeList} from '../actions/list';
 
 
 const SearchBar = () => {
@@ -13,7 +15,7 @@ const SearchBar = () => {
     const dispatch = useDispatch();
     const videos = useSelector(state => state.videos);
     const sName = useSelector((state) => state.users);
-    //const list = useSelector((state) => state.list);
+    const list = useSelector((state) => state.list);
     const { email } = sName;
     const { fetched, fetching, error } = videos;
 
@@ -30,8 +32,11 @@ const SearchBar = () => {
     const HandlePush = (videoData)=>{
         dispatch(addVideoList(videoData))
     }
+    const HandleDelete = (videoData)=>{
+        dispatch(removeVideoList(videoData));
+    }
 
-    return (
+    return (    
         <div>
             <InputGroup size="lg">
                 <FormControl
@@ -76,7 +81,10 @@ const SearchBar = () => {
                                     >Play</Button>
                                     <Button 
                                         variant="secondary"
-                                        onClick={()=>{HandlePush(videoData) }}>Watch Later</Button>
+                                        onClick={()=>{HandlePush(videoData)}}>Watch Later</Button>
+                                    <Button 
+                                        variant="secondary"
+                                        onClick={()=>{HandleDelete({email: 'raul.lopez@partnerhero.com', sid: list[0].sid})}}> DELETE</Button>
                                 </Card>
                             </CardDeck>
                         </div>
